@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fwb-service
+spec:
+  selector:
+    matchLabels:
+      app: fwb-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fwb-service
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: fwb-service
+          image: klfwbacr.azurecr.io/klfwbbe
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "500m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8989
+              protocol: TCP
+      imagePullSecrets:
+        - name: fwbimgkey

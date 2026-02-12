@@ -1,0 +1,245 @@
+[
+  {
+    "headerName": "Percentage Composition",
+    "attributeGroupType": "calculated",
+    "children": [
+      {
+        "headerName": "Percentage",
+        "field": "PercentageLevel1",
+        "width": 100,
+        "editable": false,
+        "hide": false,
+        "typeft": ""
+      },
+      {
+        "headerName": "Level 2 %",
+        "field": "PercentageLevel2",
+        "width": 100,
+        "editable": false,
+        "hide": true,
+        "typeft": ""
+      },
+      {
+        "headerName": "Level 3 %",
+        "field": "PercentageLevel3",
+        "width": 100,
+        "editable": false,
+        "hide": true,
+        "typeft": ""
+      },
+      {
+        "headerName": "Level 4 %",
+        "field": "PercentageLevel4",
+        "width": 100,
+        "editable": false,
+        "hide": true,
+        "typeft": ""
+      }
+    ]
+  },
+  {
+    "headerName": "Sequence",
+    "attributeGroupType": "calculated",
+    "children": [
+      {
+        "headerName": "Number",
+        "field": "ItemSequenceNumber",
+        "width": 50,
+        "hide": true,
+        "rollupType": "none",
+        "editable": true
+      }
+    ]
+  },
+  {
+    "headerName": "Ingredient Information",
+    "attributeGroupType": "item_simple",
+    "attributeGroup": "IngredientInformation",
+    "children": [
+      {
+        "headerName": "Density (g/mL)",
+        "field": "densityGramsCc",
+        "width": 50,
+        "editable": true,
+        "rollupType": "per100g",
+        "hide": true
+      },
+      {
+        "headerName": "S/L",
+        "field": "potencyControlled",
+        "width": 50,
+        "editable": false,
+        "rollupType": "none",
+        "hide": true
+      },
+      {
+        "headerName": "Shelf Life (Mth)",
+        "field": "shelfLifeDays",
+        "width": 50,
+        "editable": true,
+        "rollupType": "min",
+        "hide": true
+      },
+      {
+        "headerName": "Conv Factor",
+        "field": "potencyVal",
+        "width": 50,
+        "hide": false,
+        "rollupType": "none",
+        "editable": true
+      },
+      {
+        "headerName": "Overage",
+        "field": "overage",
+        "width": 50,
+        "hide": false,
+        "rollupType": "none",
+        "editable": true
+      },
+      {
+        "headerName": "Claim Qty",
+        "field": "claimQuantity",
+        "width": 50,
+        "hide": false,
+        "rollupType": "none",
+        "editable": true
+      },
+      {
+        "headerName": "AAN",
+        "field": "aan",
+        "width": 50,
+        "hide": true,
+        "rollupType": "none",
+        "editable": false
+      },
+      {
+        "headerName": "Type",
+        "field": "fbFunction",
+        "width": 50,
+        "editable": false,
+        "rollupType": "none",
+        "hide": true
+      },
+      {
+        "headerName": "INV",
+        "field": "storageConditions",
+        "width": 50,
+        "editable": false,
+        "rollupType": "none",
+        "hide": true
+      }
+    ]
+  },
+  {
+    "headerName": "Costs (AUD)",
+    "attributeGroupType": "item_simple",
+    "attributeGroup": "BLKItemCosts",
+    "children": [
+      {
+        "headerName": "Unit",
+        "field": "standardCost",
+        "width": 100,
+        "editable": true,
+        "rollupType": "per100g",
+        "hide": false
+      },
+      {
+        "headerName": "Labour",
+        "field": "averageCost",
+        "width": 100,
+        "editable": true,
+        "rollupType": "per100g",
+        "hide": true
+      },
+      {
+        "headerName": "Overhead",
+        "field": "shippingCost",
+        "width": 100,
+        "editable": true,
+        "rollupType": "per100g",
+        "hide": true
+      }
+    ]
+  },
+  {
+    "headerName": "Compliance",
+    "attributeGroupType": "item_multiline",
+    "attributeGroup": "FbCompliance",
+    "fieldMethod": "compliance",
+    "valueMethod": "yesOrNo",
+    "children": [
+      {
+        "headerName": "Animal Products",
+        "field": "AnimalProducts",
+        "width": 100,
+        "editable": true,
+        "rollupType": "and",
+        "hide": true,
+        "typeft": "string"
+      },
+      {
+        "headerName": "Antibiotics",
+        "field": "Antibiotics",
+        "width": 100,
+        "editable": true,
+        "rollupType": "and",
+        "hide": true,
+        "typeft": "string"
+      },
+      {
+        "headerName": "Potassium Salts",
+        "field": "PotassiumSalts",
+        "width": 100,
+        "editable": true,
+        "rollupType": "and",
+        "hide": true,
+        "typeft": "string"
+      },
+      {
+        "headerName": "Soy Bean",
+        "field": "SoyBean",
+        "width": 100,
+        "editable": true,
+        "rollupType": "and",
+        "hide": true,
+        "typeft": "string"
+      },
+      {
+        "headerName": "Arsenic",
+        "field": "As",
+        "width": 100,
+        "editable": true,
+        "rollupType": "and",
+        "hide": true,
+        "typeft": "string"
+      },
+      {
+        "headerName": "Cadmium",
+        "field": "Cd",
+        "width": 100,
+        "editable": true,
+        "rollupType": "and",
+        "hide": true,
+        "typeft": "string"
+      },
+      {
+        "headerName": "Lead",
+        "field": "Pb",
+        "width": 100,
+        "editable": true,
+        "rollupType": "and",
+        "hide": true,
+        "typeft": "string"
+      },
+      {
+        "headerName": "Mercury",
+        "field": "Hg",
+        "width": 100,
+        "editable": true,
+        "rollupType": "and",
+        "hide": true,
+        "typeft": "string"
+      }
+    ]
+  }
+]

@@ -1,0 +1,88 @@
+class Secrets:
+    LOCK_OUT_TIME_MINS = 30
+    leeway_in_mins = 10
+    unique_key = '45c37939-0f75'
+    token = '8674cd1d-2578-4a62-8ab7-d3ee5f9a'
+    issuer = "kalypso_formulation_tool"
+    alg = "RS256"
+
+class JWTSecrets:
+    ACCESS_TOKEN_EXPIRE_MINUTES = 30  # 30 minutes
+    REFRESH_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
+    ALGORITHM = "HS256"
+    JWT_SECRET_KEY = '45c37939-0f75'  # should be kept secret
+    JWT_REFRESH_SECRET_KEY = 'new2023formulationtool'
+
+
+
+class DefaultResponseMessages:
+    USER_UNAUTHORIZED = "User Unauthorized"
+    VALUE_SUCCESS = "success"
+    VALUE_FAILED = "failed"
+    VALUE_UNDEFINED = "undefined"
+
+
+class KEYS:
+    cookie_encryption_private_key = "#lemmskey@rock1#"
+
+class UserAccess:
+    user_id = "user_id"
+    username = "username"
+    email = "email"
+    name = "name"
+
+
+class TimeSettings:
+    hours = "hours"
+    minutes = "minutes"
+    seconds = "seconds"
+    days = "days"
+    weeks = "weeks"
+    time_type_list = [hours, minutes, seconds, days, weeks]
+
+
+class CommonConstants:
+    ui = "ui_datetime_format"
+    utc = "utc_datetime_format"
+    nsc = "no_special_chars_datetime_format"
+    umtf = "user_meta_time_format"
+    __temporary_format__ = "%Y-%m-%dT%H:%M:%S+0530"
+    __iso_format__ = "%Y-%m-%dT%H:%M:%S%z"
+    __form_iso_format__ = "%Y-%m-%dT%H:%M:%S.%f%z"
+    __utc_datetime_format__ = "%Y-%m-%dT%H:%M:%S"
+    __ui_datetime_format__ = "%Y-%m-%d %H:%M:%S"
+    __no_special_chars_datetime_format__ = "%Y%m%d%H%M%S"
+    __user_meta_time_format__ = "%d-%m-%Y %H:%M:%S"
+    __user_meta_time_format_ws__ = "%d-%m-%Y %H:%M"
+    __ui_display_datetime_format__ = "%d %b %Y %H:%M"
+    __ui_display_date_format__ = "%d %b %Y"
+    __time_format__ = "%H:%M:%S"
+
+    directory_path = "templates/"
+
+class DatabaseNames:
+    formulation_tool = "formulation_tool"
+
+
+class TableNames:
+    site_conf = "site_conf"
+    user = "user"
+    user_recent = "user_recent"
+    access_group = "access_group"
+    user_role = "user_role"
+
+
+class AzureADAuth:
+    KEY_USER_NAME = "user_name"
+    KEY_VALIDATE_STATUS = "validate_status"
+    KEY_STATUS = "status"
+    KEY_DATA = "data"
+    KEY_MESSAGE = "message"
+    KEY_ACCESS_TOKEN = "access_token"
+    KEY_EMAIL_ID = "preferred_username"
+    KEY_EXP = "exp"
+    KEY_NAME = "name"
+    TEST_SAML_PAYLOAD = "PHNhbWxwOlJlc3BvbnNlIElEPSJfMzQxODFkYWYtZWU2Ni00ZmQwLWFhZjQtNjU0ZTA1NDRjMWRkIiBWZXJzaW9uPSIyLjAiIElzc3VlSW5zdGFudD0iMjAyMS0wNi0xNlQxNDowMjoyNC44ODlaIiBEZXN0aW5hdGlvbj0iaHR0cHM6Ly9qdWJpbGFudC5pbGVucy5pby9pbGVuc19hcGkvaWxlbnNfY29uZmlnL3NhbWwvdmVyaWZ5IiBDb25zZW50PSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6Y29uc2VudDp1bnNwZWNpZmllZCIgeG1sbnM6c2FtbHA9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpwcm90b2NvbCI+PElzc3VlciB4bWxucz0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOmFzc2VydGlvbiI+aHR0cDovL2ZzLmpvbGNvcnAuaW5mby9hZGZzL3NlcnZpY2VzL3RydXN0PC9Jc3N1ZXI+PHNhbWxwOlN0YXR1cz48c2FtbHA6U3RhdHVzQ29kZSBWYWx1ZT0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOnN0YXR1czpTdWNjZXNzIiAvPjwvc2FtbHA6U3RhdHVzPjxBc3NlcnRpb24gSUQ9Il83MDlkOTAzMy1kZjdhLTRmM2UtYTU4Mi1hMTU0OGVkYzcyZWIiIElzc3VlSW5zdGFudD0iMjAyMS0wNi0xNlQxNDowMjoyNC44ODlaIiBWZXJzaW9uPSIyLjAiIHhtbG5zPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6YXNzZXJ0aW9uIj48SXNzdWVyPmh0dHA6Ly9mcy5qb2xjb3JwLmluZm8vYWRmcy9zZXJ2aWNlcy90cnVzdDwvSXNzdWVyPjxkczpTaWduYXR1cmUgeG1sbnM6ZHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPjxkczpTaWduZWRJbmZvPjxkczpDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS8xMC94bWwtZXhjLWMxNG4jIiAvPjxkczpTaWduYXR1cmVNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiAvPjxkczpSZWZlcmVuY2UgVVJJPSIjXzcwOWQ5MDMzLWRmN2EtNGYzZS1hNTgyLWExNTQ4ZWRjNzJlYiI+PGRzOlRyYW5zZm9ybXM+PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNlbnZlbG9wZWQtc2lnbmF0dXJlIiAvPjxkczpUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzEwL3htbC1leGMtYzE0biMiIC8+PC9kczpUcmFuc2Zvcm1zPjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGVuYyNzaGEyNTYiIC8+PGRzOkRpZ2VzdFZhbHVlPjlMZE9ndGVMbWFjd0h2TlNTQml4a0dXTER2dXRIT1NjZzVYYkNTeEZmYkk9PC9kczpEaWdlc3RWYWx1ZT48L2RzOlJlZmVyZW5jZT48L2RzOlNpZ25lZEluZm8+PGRzOlNpZ25hdHVyZVZhbHVlPkF6aWFhdEM1enNhalExZmhPZEQ5ME1zanBkbUd5c28xLzd6UHNwcHROOGhYYTNjRmJ5RFQxWDZVZ1FxVGxWdUwwOG5JQ25qZGI3bkVUbzZFUEIwN3hKUlBCd2Y0VUlrbEx1N3hGMklxVTA0Q01HdHZ5cHBPZHlKUXZKQjloa3FjcmhxTkNJTlFuTmFOVnY5N2UzaEtNWkI3OUtOWGNaMFFVTmFuN2RhbmMxejBINzZsMWluVFdnVnJtQ1NTcFp0NWFWUytrQVZxTXNheFJBNllvb0xwQkVOY084S2VNdjFyYjhsV2hqQmgvZVlrSTdlY0NMZTJhejVlZFFlM1JUZzBIMXIxeVhjSVRBNWFyUUZ1Nm11ckY5RnVETXBWLzNuWTd1MndKU1pkbDFLNXA3QkQ4L052U2lUY01QUklIRmNWd0tRQUw2a1BicWhZckgwMEZaWHBRUT09PC9kczpTaWduYXR1cmVWYWx1ZT48S2V5SW5mbyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+PGRzOlg1MDlEYXRhPjxkczpYNTA5Q2VydGlmaWNhdGU+TUlJQzJqQ0NBY0tnQXdJQkFnSVFGS09NUmJoRHVMOUFlR1ZUOEtkaW9EQU5CZ2txaGtpRzl3MEJBUXNGQURBcE1TY3dKUVlEVlFRREV4NUJSRVpUSUZOcFoyNXBibWNnTFNCbWN5NXFiMnhqYjNKd0xtbHVabTh3SGhjTk1qQXdPREV4TURRME9EVXhXaGNOTWpFd09ERXhNRFEwT0RVeFdqQXBNU2N3SlFZRFZRUURFeDVCUkVaVElGTnBaMjVwYm1jZ0xTQm1jeTVxYjJ4amIzSndMbWx1Wm04d2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUURYUzFDSVV2ODlpTDF3TVNiY2U3MXVxSGsyRWQwczAxYXVIK0pESFdYNVR3a3JIaUxJRVFmR1pXQ20xejhTaXEzM005WEhoUTRIaUhUL0I1ODdSZW1YN1dIWlVUVDNrOVVVQVRMRVRINk5MTmZ1VGVUV2t1SldwL2Z2WTNaQjlpWmRzRGFKS3p2U204R3llVVFmUjUvVTVuSzYrb2dZbnVRZEQ5VHFjcEU0WnNsdCt4T0c4OFVNa1FVU0hQeHZYN1hpbjQ3eWhxeXpmRVkxNnBKVnJnZzRLT3R1S2FPdkNFZUhYM1YrTUVCb3k2aGtwYzNDVkhwYkhRTnZ0YVdGdGRpbHU1Zjd6S1c2NVhld0Z0cDMwYXRUYThEc3VYR0N1a0ZxZ2NDTVRuYjIvcVpacFZ3QnVZcnpEdEEzWERuWEZYZEdEOUtQRzJTbGNkZVFUSWVJemxNMUFnTUJBQUV3RFFZSktvWklodmNOQVFFTEJRQURnZ0VCQUMvRjNmWjFBVEFHei8vc2crOE5jN3N4eHRWb2RCTEZNRjR3cStBQ2hjTytSK2E1UTZ4U04zT0Fib0hQREJacUFMay9CU2pPVStKS1JQWFpycnVRckJib1NTdnpxWitsMHBURHFkWWFETHY4T1FCeEFPVHFuajdDOVhLbUVGVExhRnRPeFh6Zm50UFJjdHhaTUFOR3gxZnFQWTF1Qjh2R2dUQTEvT2w5REN5dkpqZS9rRkswYVlya1VPWFM4aFkxZWVISzRUL1hSNktBYzIzYW9lcStHbVRrb2VKQS80OUZKemtmS1RUY0hMK3NhbDVZaVBpRWFXRnFzSzRabFFCcGtFL210eHNWZGRwYURxNEMrUWgweVhwNXBxNkI2WDA5TWIwdk02MnNFYUlia1FYWlE1Mkl2WEI5bmdFVEcyc0szZHFOUXJSUkxSZVhtZGRnTDRMNmFEYz08L2RzOlg1MDlDZXJ0aWZpY2F0ZT48L2RzOlg1MDlEYXRhPjwvS2V5SW5mbz48L2RzOlNpZ25hdHVyZT48U3ViamVjdD48U3ViamVjdENvbmZpcm1hdGlvbiBNZXRob2Q9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpjbTpiZWFyZXIiPjxTdWJqZWN0Q29uZmlybWF0aW9uRGF0YSBOb3RPbk9yQWZ0ZXI9IjIwMjEtMDYtMTZUMTQ6MDc6MjQuODg5WiIgUmVjaXBpZW50PSJodHRwczovL2p1YmlsYW50LmlsZW5zLmlvL2lsZW5zX2FwaS9pbGVuc19jb25maWcvc2FtbC92ZXJpZnkiIC8+PC9TdWJqZWN0Q29uZmlybWF0aW9uPjwvU3ViamVjdD48Q29uZGl0aW9ucyBOb3RCZWZvcmU9IjIwMjEtMDYtMTZUMTQ6MDI6MjQuNzQ5WiIgTm90T25PckFmdGVyPSIyMDIxLTA2LTE2VDE1OjAyOjI0Ljc0OVoiPjxBdWRpZW5jZVJlc3RyaWN0aW9uPjxBdWRpZW5jZT5odHRwczovL2p1YmlsYW50LmlsZW5zLmlvPC9BdWRpZW5jZT48L0F1ZGllbmNlUmVzdHJpY3Rpb24+PC9Db25kaXRpb25zPjxBdHRyaWJ1dGVTdGF0ZW1lbnQ+PEF0dHJpYnV0ZSBOYW1lPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiPjxBdHRyaWJ1dGVWYWx1ZT5pTGVuczwvQXR0cmlidXRlVmFsdWU+PC9BdHRyaWJ1dGU+PEF0dHJpYnV0ZSBOYW1lPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy91cG4iPjxBdHRyaWJ1dGVWYWx1ZT5pTGVucy5EYXRhbGFrZV90ZXN0QEpVQkxDT1JQLkNPTTwvQXR0cmlidXRlVmFsdWU+PC9BdHRyaWJ1dGU+PEF0dHJpYnV0ZSBOYW1lPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9jbGFpbXMvR3JvdXAiPjxBdHRyaWJ1dGVWYWx1ZT5KVUJMQ09SUFxEb21haW4gVXNlcnM8L0F0dHJpYnV0ZVZhbHVlPjxBdHRyaWJ1dGVWYWx1ZT5KVUJMQ09SUFxDaXRyaXhfRWhlbHBsaW5lPC9BdHRyaWJ1dGVWYWx1ZT48QXR0cmlidXRlVmFsdWU+SlVCTENPUlBcVlBOX0dyb3VwX0NpdHJpeDwvQXR0cmlidXRlVmFsdWU+PEF0dHJpYnV0ZVZhbHVlPkpVQkxDT1JQXHZwbl9pcHNlYzwvQXR0cmlidXRlVmFsdWU+PEF0dHJpYnV0ZVZhbHVlPkpVQkxDT1JQXFNHLUFsbC1WUE5BQ0NFU1M8L0F0dHJpYnV0ZVZhbHVlPjxBdHRyaWJ1dGVWYWx1ZT5KVUJMQ09SUFxTR19DaXRyaXhfUGFzc3dvcmRyZXN0X3BvcnRhbDwvQXR0cmlidXRlVmFsdWU+PC9BdHRyaWJ1dGU+PC9BdHRyaWJ1dGVTdGF0ZW1lbnQ+PEF1dGhuU3RhdGVtZW50IEF1dGhuSW5zdGFudD0iMjAyMS0wNi0xNlQxNDowMjowOS4yMTRaIj48QXV0aG5Db250ZXh0PjxBdXRobkNvbnRleHRDbGFzc1JlZj51cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6YWM6Y2xhc3NlczpQYXNzd29yZFByb3RlY3RlZFRyYW5zcG9ydDwvQXV0aG5Db250ZXh0Q2xhc3NSZWY+PC9BdXRobkNvbnRleHQ+PC9BdXRoblN0YXRlbWVudD48L0Fzc2VydGlvbj48L3NhbWxwOlJlc3BvbnNlPg=="
+
+
+
