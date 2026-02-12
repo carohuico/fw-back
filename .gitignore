@@ -113,3 +113,5 @@ logs
 /logs/
 scripts/core/handlers/test_handlers.py
 scripts/core/handlers/test_handlers.py
+.env
+application.conf
