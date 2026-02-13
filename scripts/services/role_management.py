@@ -35,11 +35,14 @@ def get_access_service(username: str, role: str, request: Request):
     try:
         logger.info("Inside get_access_service")
         token = str.replace(str(request.headers["Authorization"]), "Bearer ", "")
+        print("token", token)
         user = str.replace(str(request.headers["user"]), "", "")
+        print("user", user)
 
         valid, message = common_utils_obj.token_validation(user, token)
         if valid:
             resp = role_management_obj.get_access(username, role)
+            print("resp", resp)
             # traceback.print_exc()
             return resp
         else:
