@@ -11,16 +11,10 @@ from scripts.services.formula import formula_router
 from scripts.services.formula_comparison import formula_comparison_router
 from scripts.utils.security_utils.decorators import get_current_user
 
-import os
-
-self.host = os.environ.get("SQL_HOST")
-self.port = int(os.environ.get("SQL_PORT", 3306))
-self.username = os.environ.get("SQL_USER_NAME")
-self.password = os.environ.get("SQL_PASSWORD")
-self.db_name = os.environ.get("SQL_DB_NAME")
-
+load_dotenv()
 
 import gc
+import os
 
 from fastapi import APIRouter, Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
