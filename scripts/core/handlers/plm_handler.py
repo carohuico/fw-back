@@ -36,6 +36,7 @@ class PLMHandler:
                 config_data = data[0] if data else dict()
                 config_json = config_data.get("config", [])
                 self.attributeGroups = json.loads(config_json)
+                print("Attribute config json fetched successfully")
         except Exception as err:
             logger.error("Unable to fetch attributes data " + str(err))
             raise (str(err))
@@ -65,12 +66,15 @@ class PLMHandler:
                 "fields": "ItemId,OrganizationId,OrganizationCode,ItemNumber,ItemDescription,PrimaryUOMValue,ItemClass,ItemStatusValue,ItemEffCategory,ItemRevision",
                 "totalResults": 'true'
             }
+            print("PARAMS", params)
             items_data = self.plm_conn.get_from_plm(self.plm_token, url, params)
+            print("ITEMS DATA", items_data)
             item_response = self.formula_item(items_data, req_attr)
+            print("ITEM RESPONSE", item_response)
             
             logger.info("Completed search_server_formula_items")
             response = {"status": "success", "message": "Data fetched successfully" if item_response else "No data found",
-                        "data": item_response, "totalResults": items_data.get("totalResults")}
+                        "data": item_response, "totalResults": items_data.get("totalResults", 0)}
         except Exception as err:
             logger.error(f"Error while searching formula items from PLM {str(err)}")
             raise Exception(str(err))
@@ -134,20 +138,7 @@ class PLMHandler:
         """
         """
         try:
-            item_eff_category = each_item.get("ItemEffCategory", {})
-            if not isinstance(item_eff_category, dict):
-                if isinstance(item_eff_category, str):
-                    try:
-                        import json
-                        item_eff_category = json.loads(item_eff_category)
-                        logger.warning(f"ItemEffCategory converted from string to dict: {item_eff_category}")
-                    except Exception as e:
-                        logger.error(f"Could not convert ItemEffCategory to dict: {item_eff_category} - Error: {e}")
-                        return
-                else:
-                    logger.error(f"ItemEffCategory is not a dict: {item_eff_category}")
-                    return
-            att_links = item_eff_category.get("items", [{}])[0].get("@context", {}).get("links", [])
+            att_links = each_item.get("ItemEffCategory", {}).get("items", [{}])[0].get("@context", {}).get("links", [])
             valid_group_list = [each_att.get("name") for each_att in att_links]
 
             for each_group in self.attributeGroups:
