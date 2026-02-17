@@ -1,0 +1,100 @@
+[
+    {
+        "attribute_name": "Formula Name",
+        "excel_tab": "Frm Sheet",
+        "specific": "cell",
+        "cell": "A1"
+    },
+    {
+        "attribute_key": "formula.name",
+        "excel_tab": "Frm Sheet",
+        "specific": "cell",
+        "cell": "B1"
+    },
+    {
+        "attribute_name": "Item Name",
+        "excel_tab": "Frm Sheet",
+        "specific": "cell",
+        "cell": "A2"
+    },
+    {
+        "attribute_key": "name",
+        "excel_tab": "Frm Sheet",
+        "specific": "cell",
+        "cell": "B2"
+    },
+    {
+        "attribute_name": "Item Number",
+        "excel_tab": "Frm Sheet",
+        "specific": "cell",
+        "cell": "A3"
+    },
+    {
+        "attribute_key": "refId",
+        "excel_tab": "Frm Sheet",
+        "specific": "cell",
+        "cell": "B3"
+    },
+    {
+        "attribute_name": "Item",
+        "attribute_key": "name",
+        "excel_tab": "Frm Sheet",
+        "specific": "column",
+        "column": "A6"
+    },
+    {
+        "attribute_name": "Quantity",
+        "attribute_key": "quantity",
+        "excel_tab": "Frm Sheet",
+        "specific": "column",
+        "column": "B6"
+    },
+    {
+        "attribute_name": "Standard Cost",
+        "attribute_key": "attributes.standardCost",
+        "excel_tab": "Frm Sheet",
+        "specific": "column",
+        "column": "D6"
+    },
+    {
+        "attribute_name": "Average Cost",
+        "attribute_key": "attributes.averageCost",
+        "excel_tab": "Frm Sheet",
+        "specific": "column",
+        "column": "E6"
+    },
+    {
+        "attribute_name": "Shipping Cost",
+        "attribute_key": "attributes.shippingCost",
+        "excel_tab": "Frm Sheet",
+        "specific": "column",
+        "column": "F6"
+    },
+    {
+        "attribute_name": "Vegan",
+        "attribute_key": "attributes.Vegan",
+        "excel_tab": "Frm Sheet",
+        "specific": "column",
+        "column": "G6"
+    },
+    {
+        "attribute_name": "Shelf Life Days",
+        "attribute_key": "attributes.shelfLifeDays",
+        "excel_tab": "Frm Sheet",
+        "specific": "column",
+        "column": "H6"
+    },
+    {
+        "attribute_name": "Attributes",
+        "excel_tab": "Frm Sheet",
+        "specific": "cell",
+        "cell": "F4"
+    },
+    {
+        "attribute_name": "Item",
+        "attribute_key": "name",
+        "excel_tab": "Frm Sheet 2",
+        "specific": "column",
+        "column": "A1"
+    }
+]
