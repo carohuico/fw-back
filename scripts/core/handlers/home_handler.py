@@ -50,10 +50,11 @@ class HomeHandler:
             # ON ff.id = FFA.fk_formula AND FFA.attribute = 'CurrentStatus' AND FFA.value = %s order by ff.last_modified_date desc"""
 
             # Note: Uncomment this after development completion
+            #!  
             new_query = f""" 
             SELECT id, name, DATE_FORMAT(ff.created_date, '%b %e, %Y %r') as createdOn, DATE_FORMAT(ff.last_modified_date, '%b %e, %Y %r') as modifiedOn 
-            FROM {self.tables.frm_formula} ff INNER JOIN {self.tables.frm_formula_attributes} ffa ON ff.ID = FFA.FK_FORMULA 
-            AND FFA.ATTRIBUTE = 'CurrentStatus' AND FFA.VALUE = '{formula_type}' and created_by = '{user_id}' order by ff.last_modified_date desc
+            FROM {self.tables.frm_formula} ff INNER JOIN {self.tables.frm_formula_attributes} ffa ON ff.ID = ffa.FK_FORMULA 
+            AND ffa.ATTRIBUTE = 'CurrentStatus' AND ffa.VALUE = '{formula_type}' and created_by = '{user_id}' order by ff.last_modified_date desc
             """
             # query_params = (formula_type, user_id)
             flag, data = self.db_conn.select_mysql_table(new_query)
