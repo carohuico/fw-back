@@ -134,7 +134,20 @@ class PLMHandler:
         """
         """
         try:
-            att_links = each_item.get("ItemEffCategory", {}).get("items", [{}])[0].get("@context", {}).get("links", [])
+            item_eff_category = each_item.get("ItemEffCategory", {})
+            if not isinstance(item_eff_category, dict):
+                if isinstance(item_eff_category, str):
+                    try:
+                        import json
+                        item_eff_category = json.loads(item_eff_category)
+                        logger.warning(f"ItemEffCategory converted from string to dict: {item_eff_category}")
+                    except Exception as e:
+                        logger.error(f"Could not convert ItemEffCategory to dict: {item_eff_category} - Error: {e}")
+                        return
+                else:
+                    logger.error(f"ItemEffCategory is not a dict: {item_eff_category}")
+                    return
+            att_links = item_eff_category.get("items", [{}])[0].get("@context", {}).get("links", [])
             valid_group_list = [each_att.get("name") for each_att in att_links]
 
             for each_group in self.attributeGroups:

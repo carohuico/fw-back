@@ -720,9 +720,10 @@ class FormulaHandler:
             if frm_json:
                 frm_name = frm_json.get("name", '')
                 frm_id = frm_json.get("dbId", None)
-                query = f"""select ff.id as dbId, ff.name from frm_formula ff join FRM_FORMULA_ATTRIBUTES ffa 
-                            ON ff.ID = FFA.FK_FORMULA and FFA.ATTRIBUTE = 'CurrentStatus'
-                            AND lower(FFA.VALUE) <> 'archived' where lower(name) = '{frm_name}' and id <> '{frm_id}'"""
+                #!
+                query = f"""select ff.id as dbId, ff.name from frm_formula ff join frm_formula_attributes ffa 
+                            ON ff.ID = ffa.FK_FORMULA and ffa.ATTRIBUTE = 'CurrentStatus'
+                            AND lower(ffa.VALUE) <> 'archived' where lower(name) = '{frm_name}' and id <> '{frm_id}'"""
                 flag = self.name_validation(frm_name, exec_qry=query)
                 if flag:
                     query_statement_dict['formula_name_update'] = f"""update {TableName.frm_formula} set name=%s,
@@ -939,9 +940,10 @@ class FormulaHandler:
 
     def name_validation(self, name, exec_qry=None):
         try:
-            query = f"""select ff.id as dbId, ff.name from frm_formula ff join FRM_FORMULA_ATTRIBUTES ffa 
-                        ON ff.ID = FFA.FK_FORMULA and FFA.ATTRIBUTE = 'CurrentStatus'
-                            AND lower(FFA.VALUE) <> 'archived' where lower(name) = '{name}'"""
+            #!
+            query = f"""select ff.id as dbId, ff.name from frm_formula ff join frm_formula_attributes ffa 
+                        ON ff.ID = ffa.FK_FORMULA and ffa.ATTRIBUTE = 'CurrentStatus'
+                            AND lower(ffa.VALUE) <> 'archived' where lower(name) = '{name}'"""
             if exec_qry:
                 query = exec_qry
             flag = False
