@@ -42,7 +42,7 @@ class LoginHandler:
             # Check if user data exists
             if data:
                 username_from_data = data.get("username", "")
-
+                logger.info(f"User data found for username: {user}")
                 # Check if user exists
                 if str(username_from_data).lower() == str(user).lower():
                     plm_handler_obj = PLMHandler()
@@ -50,8 +50,9 @@ class LoginHandler:
                     # plm_valid = True # Comment this after adding plm validation
                     if plm_valid:
                         active_status = data.get("activestatus", "y")
-
+                        logger.info(f"Active status for user {user}: {active_status}")
                         if active_status == 'y':
+                            logger.info(f"User {user} is active. Proceeding with login.")                            
                             update_query = f""" Update {self.tables.frm_users} set token = %s, lastlogin = %s where username = %s """
                             update_params = (server_token, current_timestamp, user)
                             update_flag = self.db_conn.update_mysql_table(update_query, update_params)
