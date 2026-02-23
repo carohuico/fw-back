@@ -1,15 +1,20 @@
 from fastapi import APIRouter, status, Request
 
+from scripts.constants.app_constants import TableName
 from scripts.constants.app_routes import RoleURL, RouteTags, EndPoints
 from scripts.core.handlers.role_management_handler import RoleManagement
 from scripts.schemas.role_management_models import UserDetails, RoleDetails
 from scripts.logging import logger
 from scripts.utils.common_utils import CommonUtils
 import traceback
+from datetime import datetime
+
+from scripts.utils.sql_db_utils import DBUtility
 
 role_management_router = APIRouter(prefix=EndPoints.app_base_url, tags=[RouteTags.role])
 role_management_obj = RoleManagement()
 common_utils_obj = CommonUtils()
+
 
 @role_management_router.get(RoleURL.fetch_roles)
 def get_role_access_service(request: Request):
@@ -32,16 +37,25 @@ def get_role_access_service(request: Request):
 
 @role_management_router.get(RoleURL.fetch_access)
 def get_access_service(username: str, role: str, request: Request):
+    
     try:
         logger.info("Inside get_access_service")
         token = str.replace(str(request.headers["Authorization"]), "Bearer ", "")
         print("token", token)
         user = str.replace(str(request.headers["user"]), "", "")
         print("user", user)
+        tables = TableName()
+        db_conn = DBUtility()
+        update_query = f""" Update {tables.frm_users} set token = %s, lastlogin = %s where username = %s """
+        update_params = (token, datetime.now(), user)
+        update_flag = db_conn.update_mysql_table(update_query, update_params)
+        
+        if(update_flag):
+            logger.info(f"Token updated successfully for user {user}")  
+        else:
+            logger.error(f"Failed to update token for user {user}")
 
-        # valid, message = common_utils_obj.token_validation(user, token)
-        valid = True
-        message = "Valid User"
+        valid, message = common_utils_obj.token_validation(user, token)
         if valid:
             resp = role_management_obj.get_access(username, role)
             print("resp", resp)
