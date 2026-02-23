@@ -37,10 +37,12 @@ class DBUtility(object):
         flag = False
         cursor = None
         try:
+            print("Query to be executed: ", query)
             connection = pymysql.connect(host=self.host, user=self.username, password=self.password, db=self.db_name,
                                          charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor,
                                          client_flag=CLIENT.MULTI_STATEMENTS)
             with connection.cursor() as cursor:
+                print("Data to be updated: ", data)
                 cursor.execute(query, data)
             connection.commit()
             flag = True

@@ -47,6 +47,7 @@ class LoginHandler:
                 if str(username_from_data).lower() == str(user).lower():
                     plm_handler_obj = PLMHandler()
                     plm_valid = plm_handler_obj.validate_plm_user(user, token=server_token)
+                    print("PLM validation result: ", plm_valid)
                     # plm_valid = True # Comment this after adding plm validation
                     if plm_valid:
                         active_status = data.get("activestatus", "y")
